@@ -27,7 +27,7 @@ jobs:
 
       - run: 
           name: install-dependencies
-          command: npm install  
+          command: yarninstall  
 
       - save_cache:
           paths:
@@ -37,7 +37,7 @@ jobs:
       # run tests!
       - run:
           name: start-running
-          command: npm run start
+          command: yarn start
       
       - deploy:
           name: heroku
