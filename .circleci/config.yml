@@ -38,3 +38,7 @@ jobs:
       - run:
           name: start-running
           command: npm run start
+      
+      - deploy:
+          name: local-machine
+          command: ssh -o "StrictHostKeyChecking no" user@hostname "cd ~/profile-store; git pull; npm install; forever start app.js"
