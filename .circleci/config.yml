@@ -39,6 +39,16 @@ jobs:
       #     name: start-running
       #     command: yarn start
 
-      - deploy:
-          name: heroku
-          command: git push git@heroku.com:salty-plateau-69811.git $CIRCLE_SHA1:refs/heads/master
+      # - run:
+      #     name: Setup-File
+      #     command: bash .circleci/setup-heroku.sh
+
+      # - deploy:
+      #     name: heroku
+      #     command: |
+      #         git push git@heroku.com:salty-plateau-69811.git $CIRCLE_SHA1:refs/heads/master
+  deployment:
+    staging:
+      branch: master
+      heroku:
+        appname: salty-plateau-69811
