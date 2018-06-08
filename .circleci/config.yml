@@ -27,7 +27,7 @@ jobs:
 
       - run: 
           name: install-dependencies
-          command: yarninstall  
+          command: yarn install  
 
       - save_cache:
           paths:
