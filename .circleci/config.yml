@@ -38,7 +38,7 @@ jobs:
       # - run:
       #     name: start-running
       #     command: yarn start
-      #Test
+
       - deploy:
           name: heroku
           command: git push git@heroku.com:salty-plateau-69811.git $CIRCLE_SHA1:refs/heads/master
