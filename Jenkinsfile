@@ -11,7 +11,7 @@ pipeline {
                 sh './script.sh'
                 sh 'docker ps'
             }
-        }
+        
         stage('Stop'){
             steps {
                 input message: 'Finished App?'
