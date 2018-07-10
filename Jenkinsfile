@@ -1,6 +1,10 @@
 pipeline {
     agent {
-            dockerfile true
+            dockerfile {
+                filename 'Dockerfile'
+
+                additionalBuildArgs '-t calc_app'
+            }
     }
     stages {
             steps {
