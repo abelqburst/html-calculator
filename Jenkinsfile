@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Build'){
             steps {
-                sh 'bash script.sh'
+                sh 'docker run -p 3000:3000 calc_app'
                 sh 'docker ps'
             }
         }
