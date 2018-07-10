@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t root/html-calculator'
+                sh 'docker build -t root/html-calculator . '
             
             }
         }
