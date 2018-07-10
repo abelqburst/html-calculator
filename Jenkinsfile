@@ -1,25 +1,26 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            dockerfile true
+        }
+    }
     stages {
         stage('Build') {
             steps {
-               sh 'npm install'
-            }
-        }
-        stage('install') {
-            steps {
-                sh 'npm --version'
+                sh 'docker build -t root/html-calculator'
+            
             }
         }
         stage('test') {
             steps {
-                sh 'npm start'
+                sh './script.sh'
+                sh 'docker ps'
             }
         }
         stage('Stop'){
             steps {
                 input message: 'Finished App?'
-                sh 'killall node'
+                sh 'docker stop app'
             }
         }
     }
