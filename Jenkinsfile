@@ -8,7 +8,9 @@ pipeline {
     }
     stages {
         stage('Build'){
-            steps {
+            steps 
+            {
+                sh 'whoami'
                 sh 'docker run -p 3000:3000 calc_app '
             }
         }
