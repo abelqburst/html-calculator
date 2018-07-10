@@ -1,9 +1,25 @@
 pipeline {
-    agent { docker { image 'node:8.11.3' } }
+    agent any
     stages {
-        stage('build') {
+        stage('Build') {
+            steps {
+               sh 'npm install'
+            }
+        }
+        stage('install') {
             steps {
                 sh 'npm --version'
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'npm start'
+            }
+        }
+        stage('Stop'){
+            steps {
+                input message: 'Finished App?'
+                sh 'killall node'
             }
         }
     }
