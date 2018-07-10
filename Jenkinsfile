@@ -7,11 +7,12 @@ pipeline {
             }
     }
     stages {
+        stage('Build'){
             steps {
                 sh './script.sh'
                 sh 'docker ps'
             }
-        
+        }
         stage('Stop'){
             steps {
                 input message: 'Finished App?'
